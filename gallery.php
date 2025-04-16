@@ -10,7 +10,6 @@ $messages = [
 ];
 
 if (!empty($_POST) && !empty($_FILES)) {
-    //проверить на безопасность
     $imageinfo = getimagesize($_FILES['image']['tmp_name']);
 
     if (!$imageinfo) {
