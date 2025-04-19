@@ -26,7 +26,6 @@ if (isset($_GET['weight']) && isset($_GET['height'])) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,13 +36,13 @@ if (isset($_GET['weight']) && isset($_GET['height'])) {
     </style>
 </head>
 <body>
-<?php include __DIR__ . "/menu.php"?>
+<?php include __DIR__ . "/menu.php" ?>
 <form>
+    <input type="hidden" name="page" value="bmi">
     <input type="text" name="weight" placeholder="Вес">
     <input type="text" name="height" placeholder="Рост">
     <input type="submit" value="Рассчитать">
 </form>
-
 <?php if (isset($error)): ?>
     <p class="error"><?= $error; ?></p>
 <?php elseif (isset($bmi)): ?>

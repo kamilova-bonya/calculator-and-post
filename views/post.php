@@ -1,5 +1,5 @@
 <?php
-$posts = json_decode(file_get_contents('blog.json'), true);
+$posts = json_decode(file_get_contents(__DIR__ . '/../models/blog.json'), true);
 $id = $_GET['id'] ?? '';
 
 if (!array_key_exists($id, $posts)) {
@@ -18,7 +18,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'addlike') {
     }
     $posts[$id]['likes']++;
 
-    file_put_contents('blog.json', json_encode($posts, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    file_put_contents(__DIR__ . '/../models/blog.json', json_encode($posts, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
     $response = [
         'status' => 'ok',
@@ -44,11 +44,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'addlike') {
         <h2><?= $post['title'] ?></h2>
         <p>
             <?php if (isset($post['image'])):?>
-                <img src="images/big/<?= $post['image']  ?>" alt="" width="200" style="float:left">
+                <img src="/images/big/<?= $post['image']  ?>" alt="" width="200" style="float:left">
             <?php endif;?>
             <?= $post['content'] ?></p>
         <button onclick="addlike(<?=$id?>)">LIKES: <span id="<?=$id?>"><?=$post['likes']?></span></button>
-
     </div>
 <?php else: ?>
     <div>
@@ -68,4 +67,5 @@ if (isset($_GET['action']) && $_GET['action'] == 'addlike') {
 </script>
 </body>
 </html>
+
 

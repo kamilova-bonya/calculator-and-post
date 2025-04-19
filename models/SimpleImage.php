@@ -14,7 +14,7 @@
 //  Licensed under the MIT license <http://opensource.org/licenses/MIT>
 //
 
-namespace claviska;
+namespace claviska\models;
 
 use Exception;
 use GdImage;

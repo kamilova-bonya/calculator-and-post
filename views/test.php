@@ -27,6 +27,7 @@ $posts = [
     ]
 ];
 ?>
+<?php include __DIR__ . "/menu.php" ?>
 <!doctype html>
 <html lang="en">
 <head>
