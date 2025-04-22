@@ -30,15 +30,18 @@ function calculate($a, $b, $operation) {
     };
 }
 
-function getPosts() {
+function getPosts() 
+{
     return json_decode(file_get_contents(__DIR__ . '/blog.json'), true);
 }
 
-function savePosts($posts) {
+function savePosts($posts) 
+{
     file_put_contents(__DIR__ . '/blog.json', json_encode($posts, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 }
 
-function validateImage($file) {
+function validateImage($file) 
+{
     $imageinfo = getimagesize($file['tmp_name']);
 
     if (!$imageinfo) {
@@ -63,7 +66,8 @@ function validateImage($file) {
     return null;
 }
 
-function uploadImage($file) {
+function uploadImage($file) 
+{
     $imageName = uniqid() . '_' . $file['name'];
     $uploadPath = __DIR__ . '/../images/big/' . $imageName;
 
@@ -74,7 +78,8 @@ function uploadImage($file) {
     return ['/images/big/' . $imageName, null];
 }
 
-function validatePost($title, $content) {
+function validatePost($title, $content) 
+{
     $errors = [];
 
     if (empty($title)) {
